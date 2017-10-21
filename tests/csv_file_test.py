@@ -7,12 +7,12 @@ class CsvFileTestSuite(unittest.TestCase):
     """ CsvFile test cases. """
 
     def test_fail_open_empty_path(self):
-        """ test constructor with empty path """
+        """ should fail when initialized with an empty string """
         with self.assertRaises(IOError):
             CsvFile('')
 
     def test_get_rows_for_columns(self):
-        """ test constructor with good path """
+        """ should get all rows only with the given columns and its values """
         path = 'tests/test_csv_a.csv'
         csv_file = CsvFile(path)
         rows = csv_file.get_rows_for_columns(['column2', 'price'])
