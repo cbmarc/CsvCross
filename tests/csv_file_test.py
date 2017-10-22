@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """ Test for CsvFile class in csvx module """
 import unittest
-from csvx.csv_file import CsvFile
+from context import CsvFile
 
 class CsvFileTestSuite(unittest.TestCase):
     """ CsvFile test cases. """
