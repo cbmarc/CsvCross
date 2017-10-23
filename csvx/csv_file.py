@@ -17,7 +17,6 @@ class CsvFile(object):
         column_indexes = self.__get_columns_index(columns)
         return self.__get_rows_for_columns(self.rows, column_indexes)
 
-
     def __get_rows_for_columns(self, rows, column_indexes):
         new_rows = list()
         for row in rows:
