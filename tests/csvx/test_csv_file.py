@@ -6,7 +6,6 @@ from csvx.csv_file import CsvFile
 class CsvFileTestSuite(unittest.TestCase):
     """ CsvFile test cases. """
 
-
     def test_fail_open_empty_path(self):
         """ should fail when initialized with an empty string """
         with self.assertRaises(IOError):
