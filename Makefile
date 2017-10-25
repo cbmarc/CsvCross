@@ -7,4 +7,7 @@ test:
 coverage:
 	python -m coverage run -m unittest
 
-.PHONY: init test coverage
+clean:
+    find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
+
+.PHONY: init test coverage clean
