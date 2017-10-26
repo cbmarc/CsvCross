@@ -28,8 +28,6 @@ class CsvFile(object):
             reader = csv.reader(csv_file)
             self.rows = list(reader)
             self.header = self.rows[0]
-            
+
             # Remove headers from the rows list
             del self.rows[0]
-            
-    
