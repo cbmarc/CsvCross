@@ -12,6 +12,10 @@ class CsvFile(object):
         """Initializes the class with required stuff"""
         self.__open(path)
 
+    def get_rows(self):
+        """Gets rows for all columns"""
+        return self.__get_rows_for_columns(self.rows, self.__get_columns_index(self.header))
+
     def get_rows_for_columns(self, columns):
         """Gets the rows with only the given columns"""
         return self.__get_rows_for_columns(self.rows, self.__get_columns_index(columns))
