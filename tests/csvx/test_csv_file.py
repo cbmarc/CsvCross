@@ -30,7 +30,7 @@ class CsvFileTestSuite(unittest.TestCase):
         self.assertEqual(len(rows[0]), 4)
 
     def test_headers_loaded(self):
-        """should get the list of headers"""
+        """should have the list of headers"""
         self.assertGreater(len(self.csv_file.header), 0)
         self.assertListEqual(self.csv_file.header, ['column1', 'column2', 'column3', 'price'])
 
