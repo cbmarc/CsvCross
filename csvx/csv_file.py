@@ -4,7 +4,7 @@ Author Marc
 import csv
 
 class CsvFile(object):
-    """This class loads and interacts with a particular CSV file"""
+    """This class loads a CSV file and holds its data"""
     rows = None
     header = None
 
@@ -14,11 +14,13 @@ class CsvFile(object):
 
     def get_rows(self):
         """Gets rows for all columns"""
-        return self.__get_rows_for_columns(self.rows, self.__get_columns_index(self.header))
+        column_indexes = self.__get_columns_index(self.header)
+        return self.__get_rows_for_columns(self.rows, column_indexes)
 
     def get_rows_for_columns(self, columns):
         """Gets the rows with only the given columns"""
-        return self.__get_rows_for_columns(self.rows, self.__get_columns_index(columns))
+        column_indexes = self.__get_columns_index(columns)
+        return self.__get_rows_for_columns(self.rows, column_indexes)
 
     def __get_rows_for_columns(self, rows, column_indexes):
         return [[x for i, x in enumerate(r) if i in column_indexes] for r in rows]
@@ -30,8 +32,4 @@ class CsvFile(object):
         """Opens the csv file to work with"""
         with open(path, 'r') as csv_file:
             reader = csv.reader(csv_file)
-            self.rows = list(reader)
-            self.header = self.rows[0]
-
-            # Remove headers from the rows list
-            del self.rows[0]
+            self.rows = {rows[0]:rows[1] for rows in reader}
