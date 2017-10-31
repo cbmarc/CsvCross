@@ -16,7 +16,7 @@ class CsvFileTestSuite(unittest.TestCase):
         """ should fail when initialized with an empty string """
         with self.assertRaises(IOError):
             CsvFile('')
-        
+
     def test_get_rows(self):
         """should get all rows only with the given columns and its values"""
         rows = self.csv_file.get_rows()
